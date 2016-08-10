@@ -12,7 +12,22 @@ class SchoolsController < ApplicationController
   def show
   end
 
+  def get_states 
+    @states = State.where(country: params[:country]).pluck(:name)
+    render :layout => false
+  end
   # GET /schools/new
+
+  def get_cities
+    @cities = State.where(name: params[:name]).pluck(:city)
+    render :layout => false
+  end
+
+  def get_users
+   @users = School.find(params[:id]).users
+    render :layout =>false
+  end
+
   def new
     @school = School.new
   end
