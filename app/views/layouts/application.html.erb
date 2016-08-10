@@ -18,7 +18,11 @@
 			    <div id="navbar">
 			      <ul class="nav navbar-nav">
 			        <li><%= link_to 'Home', root_path %></li>
-			      </ul>
+			        <li><%if user_signed_in? %>
+			        <%= link_to 'School', new_school_path %>
+
+			        <%end %></li>
+			      </ul>	
 			      <ul class="nav navbar-nav pull-right">
 			        <% if user_signed_in? %>
 			          <li class="dropdown">
