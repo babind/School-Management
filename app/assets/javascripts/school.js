@@ -36,7 +36,7 @@ $(function(){
 						type : 'get',
 						data :'id=' + school_id,
 						success : function(response){
-								
+							$("#field").replaceWith(response);
 						},
 						error: function(error){
 							console.log(error);

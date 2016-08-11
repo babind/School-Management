@@ -5,6 +5,7 @@ class SchoolsController < ApplicationController
   # GET /schools.json
   def index
     @schools = School.all
+    @school = School.new
   end
 
   # GET /schools/1
@@ -29,7 +30,7 @@ class SchoolsController < ApplicationController
   end
 
   def new
-    @school = School.new
+     @school = School.new
   end
 
   # GET /schools/1/edit
@@ -38,19 +39,27 @@ class SchoolsController < ApplicationController
 
   # POST /schools
   # POST /schools.json
-  def create
+ def create
     @school = School.new(school_params)
+    @school.save
+    redirect_to schools_path
+end
 
-    respond_to do |format|
-      if @school.save
-        format.html { redirect_to @school, notice: 'School was successfully created.' }
-        format.json { render :show, status: :created, location: @school }
-      else
-        format.html { render :new }
-        format.json { render json: @school.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+# end
+
+  # def create
+  #   @school = School.new(school_params)
+
+  #   respond_to do |format|
+  #     if @school.save
+  #       format.html { redirect_to @school, notice: 'School was successfully created.' }
+  #       format.json { render :show, status: :created, location: @school }
+  #     else
+  #       format.html { render :new }
+  #       format.json { render json: @school.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PATCH/PUT /schools/1
   # PATCH/PUT /schools/1.json
@@ -84,6 +93,6 @@ class SchoolsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def school_params
-      params.require(:school).permit(:name, :country, :state, :address)
+      params.require(:school).permit(:name, :country, :state, :address,:city)
     end
 end
