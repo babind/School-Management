@@ -43,7 +43,7 @@ class SchoolsController < ApplicationController
     @school = School.new(school_params)
     @school.save
     redirect_to schools_path
-end
+ end
 
 # end
 

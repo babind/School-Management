@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Schools</h1>
+<h1 align="center">Schools</h1>
 
-<table>
+<table class="table table-responsive">
   <thead>
     <tr>
       <th>Name</th>
@@ -29,9 +29,9 @@
 </table>
 <br>
 <h1> New School</h1>
-
-<%= render 'form', school: @school %>
-
+<div class="my_field">
+    <%= render 'form', school: @school %>
+</div>
 
 
 <%= link_to 'New School', new_school_path %>

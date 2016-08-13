@@ -17,6 +17,7 @@
 
 
   <div class="field">
+  <%= f.label:University_Education %>
   <%= hidden_field_tag "user[school_ids][]", nil %>
     <% School.all.each do |school| %>
       <%= check_box_tag "user[school_ids][]" , school.id %>
@@ -31,13 +32,14 @@
   </div>
 
   <div class="field">
-    <%= f.label:DOB %>
+    <%= f.label:Date_Of_Birth %>
     <br>
-    <%= f.date_select :date_of_birth, class:"form-control" %>
+    <span class="datetime"><%= f.date_select :date_of_birth, { order: [:year, :month, :day] }, { class: "form-control " } %></span>
+    </br>
   </div>
-
+  
   <div class="field">
-    <%= f.label :email %><br />
+   <h5> <%= f.label :email %></h5>
     <%= f.email_field :email, autofocus: true , class: "form-control"%>
   </div>
 
@@ -53,8 +55,9 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" ,class: "form-control" %>
   </div>
+
   <div class="actions">
-    <%= f.submit "Sign up", class: "btn btn-success" %>
+    <%= f.submit "Sign up", class: "btn btn-success"%>
   </div>
 <% end %>
 
