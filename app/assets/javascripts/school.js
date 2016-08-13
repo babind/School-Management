@@ -43,4 +43,20 @@ $(function(){
 						}
 			});
 	});
+	 $(function () {
+	  divtoshow = '<div style="height: 250px; width: 400px;">'
+            + '<h2>Modal Fancybox</h2>'
+            + 'This is my message'
+            + '<br /><br /><input type="button" value="Close" onclick="javascript:$.fancybox.close();" />'
+            + '</div>';
+
+        //Show fancybox
+        $.fancybox(
+            divtoshow,
+            {
+                'modal'     : true
+                , 'height'  : 250
+                , 'width'   : 400
+            }
+        );
 });
